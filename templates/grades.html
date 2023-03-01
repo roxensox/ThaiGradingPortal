@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}
+TGP - {{ roster[0]['class_sec'] }} Grades
+{% endblock %}
+
+{% block pagename %}
+Grades: {{ roster[0]['class_sec'] }}
+{% endblock %}
+
+{% block main %}
+<form method="post">
+    <div class="gradecontainer">
+        <div class="subjectsectioncontainer">
+            <select class="section">
+                <option selected>{{ roster[0]['class_sec'] }}</option>
+                {% for class in classes %}
+                {% if class['class'] != roster[0]['class_sec'] %}
+                <option>{{ class['class'] }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <select class="section">
+                <option selected>{{ curr_subject }}</option>
+                {% for subject in subjects %}
+                {% if subject != curr_subject %}
+                <option>{{ subject }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <a class="cell editbutton link" href="/editgrades">Edit Grades</a>
+            
+        </div>
+        <div class="tablehead custrow">
+            <div class="heading cell num">#</div>
+            <div class="heading cell id">ID</div>
+            <div class="heading cell name">Name</div>
+            <div class="heading cell grade">Pre-Midterm</div>
+            <div class="heading cell grade">Midterm</div>
+            <div class="heading cell grade">Post-Midterm</div>
+            <div class="heading cell grade">Final</div>
+            <div class="heading cell percent">Score</div>
+        </div>
+        {% for row in roster %}
+        {% if row['student_index'] % 2 != 0 %}
+        <div class="custrow">
+            <div class="entry cell num">{{ row['student_index'] }}</div>
+            <div class="entry cell id">{{ row['id_num'] }}</div>
+            <div class="entry cell name">{{ row['thai_name'] }}</div>
+            {% if row['pre_mid'] == None %}
+                <div class="entry cell grade">0</div>
+            {% else %}
+                <div class="entry cell grade">{{ row['pre_mid'] }}</div>
+            {% endif %}
+            {% if row['midterm'] == None %}
+                <div class="entry cell grade">0</div>
+            {% else %}
+                <div class="entry cell grade">{{ row['midterm'] }}</div>
+            {% endif %}
+            {% if row['post_mid'] == None %}
+                <div class="entry cell grade">0</div>
+            {% else %}
+                <div class="entry cell grade">{{ row['post_mid'] }}></div>
+            {% endif %}
+            {% if row['final'] == None %}
+                <div class="entry cell grade">0</div>
+            {% else %}
+                <div class="entry cell grade">{{ row['final'] }}" div>
+            {% endif %}
+            <div class="entry cell percent even">{{ (row['percent']) }}</div>
+        </div>
+        {% endif %}
+        {% if row['student_index'] % 2 == 0 %}
+        <div class="custrow">
+            <div class="entry cell num even">{{ row['student_index'] }}</div>
+            <div class="entry cell id even">{{ row['id_num'] }}</div>
+            <div class="entry cell name even">{{ row['thai_name'] }}</div>
+            {% if row['pre_mid'] == None %}
+                <div class="entry cell grade even">0</div>
+            {% else %}
+                <div class="entry cell grade even">{{ row['pre_mid'] }}</div>
+            {% endif %}
+            {% if row['midterm'] == None %}
+                <div class="entry cell grade even">0</div>
+            {% else %}
+                <div class="entry cell grade even">{{ row['midterm'] }}</div>
+            {% endif %}
+            {% if row['post_mid'] == None %}
+                <div class="entry cell grade even">0</div>
+            {% else %}
+                <div class="entry cell grade even">{{ row['post_mid'] }}></div>
+            {% endif %}
+            {% if row['final'] == None %}
+                <div class="entry cell grade even">0</div>
+            {% else %}
+                <div class="entry cell grade even">{{ row['final'] }}</div>
+            {% endif %}
+                <div class="entry cell percent even">{{ (row['percent']) }}</div>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+</form>
+
+{% endblock %}

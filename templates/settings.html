@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pagename %}
+Settings
+{% endblock %}
+
+{% block main %}
+<div class="settingscontainer">
+    <h3>Settings</h3>
+    <h5 class="settingsheading">Change Username</h5>
+    <form class="configureform" method="post" action="/changeusername">
+        <div class="formfield">
+            <label class="settingslabel">Change Username</label>
+            <input type="username" autocomplete="off" placeholder="New Username" required name="newusername" class="settingsinput">
+            <button class="settingsbutton" type="submit">Submit</button>
+        </div>
+    </form>
+    <h5 class="settingsheading">Change Password</h5>
+    <form class="configureform" method="post" action="/changepassword">
+        <div class="formfield">
+            <label class="settingslabel">Change Password</label>
+            <input type="password" autocomplete="off" placeholder="New Password" required name="password" class="settingsinput newpass">
+        </div>
+        <div class="formfield">
+            <label class="settingslabel">Old Password</label>
+            <input type="password" autocomplete="off" placeholder="Old Password" required name="oldpass" class="settingsinput">
+            <button class="settingsbutton" action="/changepassword" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

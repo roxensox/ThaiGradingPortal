@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block pagename %}
+Register
+{% endblock %}
+
+{% block main %}
+    <div class="logincontainer">
+        <form method="post" class="registerform">
+            <div class="formfield">
+                <label class="registerlabel">Username</label>
+                <input type="username" required placeholder="Username" class="registerfield" name="username">
+            </div>
+            <div class="formfield">
+                <label class="registerlabel">Password</label>
+                <input autocomplete="off" required type="password" placeholder="Password" class="registerfield" name="password">
+            </div>
+            <button class="registerbutton" action="/login">Sign In</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pagename %}
+Thai Grading Portal
+{% endblock %}
+
+{% block main %}
+    <div class="aboutcontainer">
+        <h1 class="aboutheading">Thai Grading Portal</h1>
+        <div class="aboutbody">
+            <h5 class="aboutsectitle">Introduction</h5>
+            <p>
+                Thai Grading Portal is a collection of services that help teachers in 
+                Thailand's public schools to record, maintain and modify grades for their 
+                classes. Grading can be a very complicated process, and with large class 
+                sizes, it can also be hard to keep track of student names, grades, 
+                attendance, and lesson progress.
+            </p>
+            <p>
+                TGP provides a way for teachers to share this information among each other
+                indirectly, so teachers can spend less time collecting and managing their
+                classes' information, and more time focusing on quality lessons and one on
+                one interaction with students.
+            </p>
+            <h5 class="aboutsectitle">Grading</h5>
+            <p>
+                TGP's core feature is its grade-viewing and -modifying page. Teachers can 
+                view their class rosters with simple grade summaries, (in the format of
+                standard Thai public school gradebooks,) easily modify them through TGP's
+                interface, or export them to Excel and Google Sheets.
+            </p>
+            <h5 class="aboutsectitle">Attendance</h5>
+            <p>
+                In addition to grade information being stored and modified through TGP,
+                teachers can also take attendance using TGP's interface, or through their
+                preference of Excel or Google Sheets. In the latter case, attendance data
+                can be imported the same as grade data, and most importantly, exported in
+                the proper format as well. If your school's administration is using TGP,
+                they can mark national or school holidays on TGP's calendar to prevent
+                attendance being taken by mistaken on holidays.
+            </p>
+            <h5 class="aboutsectitle">Importing and Exporting</h5>
+            <p>
+                As well as exporting grading data from TGP's site, teachers can also import
+                their grade data from .xlsx, .csv and Google Sheets workbooks if they prefer
+                to use TGP's interface. Teachers can swap between different formats as often
+                as they like, and there are advantages to doing so.
+            </p>
+            <p>
+                For example, if a teacher has been managing their grades locally using Google
+                Sheets, but they need to transfer them to school gradebook format, they can
+                import their Google Sheets workbook, use TGP's interface to finalize their
+                grades, and then export it to their school's gradebook format .xlsx file to be
+                printed and given to administrators.
+            </p>
+            <h5 class="aboutsectitle">Student Profiles</h5>
+            <p>
+                There will often be students whose performance doesn't match up with the rest
+                of their class, whether it's better or worse. With student profiles, teachers
+                can get some insight into their student's performance by looking at the student's
+                average performance for the semester across all classes and remarks from other 
+                teachers, as well as average performance by field of study. These pieces of
+                information can give teachers a more well-rounded understanding of their students.
+            </p>
+            <h5 class="aboutsectitle">Class Profiles</h5>
+            <p class="lastabout">
+                In a similar fashion, whole classes may have widely varying performance in the same
+                subject. Class profiles allow teachers to see in which subject each class shines, 
+                as well as their weak points. Teachers who teach the same class will be able to
+                see remarks that other teachers choose to share, as well as their own private
+                remarks on each class. This allows teachers to keep track of which teaching methods
+                are effective with each class.
+            </p>
+        </div>
+    </div>
+{% endblock %}

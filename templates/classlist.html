@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+TGP - Class Menu
+{% endblock %}
+
+{% block pagename %}
+Class Menu
+{% endblock %}
+
+{% block main %}
+<div class="settingscontainer">
+    <h3>Classes</h3>
+    <h5 class="settingsheading">Subjects</h5>
+    <div class="classmenucontainer">
+        <tbody class="subjectlist">
+            {% for subject in session.get("subjects") %}
+            <form action="/subjectsections" method="post" class="classform">
+                <div class="classrow">  
+                    <button class="classbutton" type="submit" value="{{ subject }}" name="subject"><div class="cell classes">{{ subject }}</div></button>
+                </div>
+            </form>
+            {% endfor %}
+        </tbody>
+    </div>
+    <h5 class="settingsheading">Sections</h5>
+    <div class="classmenucontainer">
+        {% for grade in session.get("levels") %}
+        <h6 class="settingsheading">M{{ grade }}</h3>
+        <tbody class="subjectlist">    
+            {% for section in session.get("permissions") %}
+            {% if section[0] == grade %}
+            <form action="/grades" method="post" class="classform">
+                <div class="classrow">  
+                    <button class="classbutton" type="submit" value="{{ section }}" name="section"><div class="cell classes">{{ section[0] }}/{{ section[1] }}</div></button>
+                    <input style="visibility:hidden; width: 0; height: 0;" value="{{ section[2] }}" name="subject">
+                </div>
+            </form>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

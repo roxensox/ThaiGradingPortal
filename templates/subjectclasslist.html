@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+TGP - {{ subject }} Classes
+{% endblock %}
+
+{% block pagename %}
+Class Menu
+{% endblock %}
+
+{% block main %}
+<div class="settingscontainer">
+    <h3>{{ subject }}</h3>
+    <h5 class="settingsheading">Sections</h5>
+    <div class="classmenucontainer">
+        {% for grade in levels %}
+        <h6 class="settingsheading">M{{ grade }}</h3>
+        <tbody class="subjectlist">    
+            {% for section in subject_data %}
+            {% if section[0] == grade and section[2] == subject %}
+            <form action="/grades" method="post" class="classform">
+                <div class="classrow">
+                    <button class="classbutton" type="submit" value="{{ section }}" name="section"><div class="cell classes">{{ section[3] }}</div></button>
+                    <input style="visibility:hidden; width: 0; height: 0;" value="{{ subject }}" name="subject">
+                </div>
+            </form>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

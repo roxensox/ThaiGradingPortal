@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pagename %}
+Grades: {{ roster[0]['class_sec'] }}
+{% endblock %}
+
+{% block main %}
+<form method="post">
+    <div class="container">
+        <div class="subjectsectioncontainer">
+            <select placeholder="{{ roster[0]['class_sec'] }}" class="section">
+            <input type="text" placeholder="{{ roster[0]['class'] }}" class="subject">
+        </div>
+        <div class="tablehead custrow">
+            <div class="heading cell num">#</div>
+            <div class="heading cell id">ID</div>
+            <div class="heading cell name">Name</div>
+            <div class="heading cell grade">Pre-Midterm</div>
+            <div class="heading cell grade">Midterm</div>
+            <div class="heading cell grade">Post-Midterm</div>
+            <div class="heading cell grade">Final</div>
+            <div class="heading cell percent">Score</div>
+        </div>
+        {% for i in x %}
+        {% if i % 2 != 0 %}
+        <div class="custrow">
+            <div class="entry cell num">{{ i }}</div>
+            <div class="entry cell id">{{ roster[i]['id_num'] }}</div>
+            <div class="entry cell name">{{ roster[i]['thai_name'] }}</div>
+            {% if roster[i]['pre_mid'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['pre_mid'] }}" class="input"></div>
+            {% endif %}
+            {% if roster[i]['midterm'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['midterm'] }}" class="input"></div>
+            {% endif %}
+            {% if roster[i]['post_mid'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['post_mid'] }}" class="input"></div>
+            {% endif %}
+            {% if roster[i]['final'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['final'] }}" class="input"></div>
+            {% endif %}
+            <div class="entry cell percent">0%</div>
+        </div>
+        {% endif %}
+        {% if i % 2 == 0 %}
+        <div class="custrow">
+            <div class="entry cell num even">{{ i }}</div>
+            <div class="entry cell id even">{{ roster[i]['id_num'] }}</div>
+            <div class="entry cell name even">{{ roster[i]['thai_name'] }}</div>
+            {% if roster[i]['pre_mid'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['pre_mid'] }}" class="input"></div>
+            {% endif %}
+            {% if roster[i]['midterm'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['midterm'] }}" class="input"></div>
+            {% endif %}
+            {% if roster[i]['post_mid'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['post_mid'] }}" class="input"></div>
+            {% endif %}
+            {% if roster[i]['final'] == None %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="0" class="input"></div>
+            {% else %}
+                <div class="entry cell grade"><input type="text" pattern="[0-9]+" placeholder="{{ roster[i]['final'] }}" class="input"></div>
+            {% endif %}
+            <div class="entry cell percent even">0%</div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+</form>
+
+{% endblock %}

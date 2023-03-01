@@ -1,0 +1,467 @@
+/*
+
+                *LAYOUT ELEMENTS
+
+*/
+/** Universal Formatting */
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+/** Style for links */
+.link {
+    text-decoration-line: none;
+    color: black;
+}
+/** Style for the container that holds content inserted by other pages */
+body .maincontent {
+    position: absolute;
+    background-color: #434870;
+    top: 0;
+    bottom: 0vh;
+    min-width: calc(100% - 223px);
+    width: calc(100% - 23vw);
+    height: fit-content;
+    right: 0vw;
+    padding: 20px;
+}
+body.active .maincontent {
+    top: 30px;
+}
+/** Background element to mask uneven transitions */
+.background {
+    position: absolute;
+    background-color: #434870;
+    bottom: 0vh;
+    left: 0vw;
+    right: 0vw;
+    height: 100vh;
+    width: 100%;
+}
+/** Style for the logo image */
+#logo {
+    height: 60px;
+    width: 130px;
+    margin-left: 40px;
+    max-width: 100%;
+}
+/** Style for the sidebar */
+.maincontainer .sidebar {
+    background: #7092BB;
+    display: block;
+    position: fixed;
+    max-width: 225px;
+    width: 23vw;
+    height: 100%;
+    left: 0vw;
+    border-right: solid #363636 5px;
+    align-content: center;
+    top: 0;
+}
+/** Styles for icons and text in the list-related elements contained in the sidebar */
+.maincontainer .sidebar ul li a .icon {
+    display: inline-block;
+    color: #111111;
+    margin-top: 2vh; 
+    margin-left: -1vw;
+}
+.maincontainer .sidebar ul li a .text {
+    color: #363636;
+    margin-left: 5px;
+}
+/** Sets behavior for hovering over an item in the sidebar list */
+.maincontainer .sidebar .item:hover {
+    color: #BFAA92;
+}
+/** Sets behavior for all containers when the sidebar is collapsed */
+body.active .maincontainer .sidebar {
+    left: -250px;
+}
+body.active .maincontainer .sitename {
+    left: -250px;
+}
+body.active .maincontent {
+    width: 100%;
+}
+/** Container for the logo */
+.sitename {
+    position: fixed;
+    left: 0vw;
+    top: 0vh;
+    background-color: #E9DFD0;
+    max-width: 220px;
+    width: calc(23vw - 5px);
+    padding-top: 2vh;
+    border-bottom: #363636 5px solid;
+}
+/** Style for the list of links in the sidebar */
+.sidebar_menu {
+    position: absolute;
+    top: 10vh;
+}
+/** Style to remove link formatting from links in the sidebar */
+.active {
+    text-decoration: none;
+}
+/** Style for container holding the button that collapses the sidebar */
+.hamburger {
+    position: fixed;
+    top: 0.25vh;
+    left: 190px;
+}
+/** Style for the button itself */
+.hider {
+    color: #363636;
+}
+.hider:hover {
+    color: white;
+}
+body.active .hamburger {
+    position: fixed;
+    left: 0.5vw;
+    background-color: #E9DFD0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 2px solid #363636;
+    top: 4vh;
+}
+/*! This element is a placeholder */
+.contentbox {
+    width: 90%;
+    background-color: #7092AE;
+    margin: auto;
+    margin-top: 20px;
+    min-height: 20vh;
+    padding: 5px;
+}
+/** Style for the first option/item in any list so I can add bottom margin to space the rest of the list */
+.first {
+    margin-top: 10px;
+}
+/** Formatting for the top navbar (only appears when the sidebar is collapsed) */
+.navbar {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: #E9DFD0;
+    top: -5vh;
+    visibility: hidden;
+}
+body.active .navbar {
+    top: 0vh;
+    visibility: visible;
+}
+/** Formatting for the text in the top navbar */
+.navtext {
+    margin: auto;
+    margin-top: -5px;
+}
+.flashes {
+    visibility: visible;
+    min-width: calc(100% - 223px);
+    width: calc(100% - 23vw);
+    right: 0;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: -1.7vh;
+    opacity: 80%;
+    text-align: center;
+}
+body.active .flashes {
+    width: 100vw;
+}
+/** Style for the last option in the sidebar list in order to properly space the optional admin settings button */
+.lastoption {
+    position: fixed;
+    bottom: 0vh;
+    background-color: #E9DFD0;
+    max-width: 225px;
+    width: 23vw;
+    border-right: 5px #363636 solid;
+    border-top: 5px #363636 solid;
+    left: 0vw;
+    text-align: center;
+    padding-bottom: 1.5vh;
+    border-top-right-radius: 5px;
+}
+.lastoption .active .item:hover {
+    color: #434870;
+}
+body.active .lastoption {
+    left: -250px;
+    visibility: hidden;
+}
+/*
+
+                *GRADE PAGE ELEMENTS
+
+*/
+/*! CHANGE THIS NAME - Formatting for all cells in the table */
+.cell {
+    background-color: #F5F5F5;
+    border: 3px solid #363636;
+    padding: 4px;
+    margin: 2px auto;
+    border-radius: 6px;
+    text-align: center;
+}
+/* todo */
+.entry {
+    font-weight: 400;
+}
+/*! CHANGE THIS NAME - Special formatting for cells containing student names */
+.name {
+    width: 13vw;
+    font-weight: bold;
+}
+/*! CHANGE THIS NAME - Special formatting for the column names in the grades table */
+.heading {
+    margin-bottom: 5px;
+    background-color: #B5B5AA;
+    margin-top: 4px;
+    border-radius: 3px;
+    font-weight:500;
+}
+/** Custom formatting for rows in my table (bootstrap table wasn't cooperating) */
+.custrow {
+    display: flex;
+    width: 65vw;
+    margin: auto;
+}
+/** Special formatting for cells containing student ID number */
+.id {
+    width: 7vw;
+}
+/** Special formatting for cells containing student class number */
+.num {
+    width: 4vw;
+}
+/** Special formatting for cells containing grade information */
+.grade {
+    width: 8vw;
+}
+/** Container for the grades table */
+.gradecontainer {
+    padding: 5px;
+    padding-top: 45px;
+    background-color: #7092AE;
+    border: #363636 5px solid;
+    padding-bottom: 45px;
+    border-radius: 10px;
+}
+/** Style for even-numbered rows in tables */
+.even {
+    background-color: #D1D1CC;
+}
+/** Style for textboxes on the edit grades page */
+.input {
+    width: 100%;
+    height: 100%;
+    padding-left: 2px;
+}
+/** Style for the percentage container on the grade pages */
+.percent {
+    width: 6vw;
+}
+/** Style for the container that holds the text boxes for class section and subject */
+.subjectsectioncontainer {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin: -25px auto 10px auto;
+}
+/** Style for class section text box on the view and edit grades pages */
+.section {
+    width: fit-content;
+    padding-left: 2px;
+    border: 3px solid #363636;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+/** Style for subject text box on the view and edit grades pages */
+.subject {
+    margin-left: 10px;
+    padding-left: 2px;
+    border: 3px solid #363636;
+    border-radius: 3px;
+}
+/** Style for the button that leads to the edit grades page */
+.editbutton {
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+/*
+
+                *REGISTER PAGE ELEMENTS
+                !May remove this page entirely
+
+*/
+/** Formatting for text input fields on the register page */
+.registerfield {
+    position: relative;
+    left: 20px;
+    padding-left: 2px;
+    background-color: #E1E1DD;
+    border-radius: 6px 0px 6px 0;
+}
+/* todo */
+.formfield {
+    margin-bottom: 10px;
+    width: 100%;
+}
+/** Style for labels attached to text input fields */
+.registerlabel {
+    width: 70px;
+}
+/** Style for the container for all fields on the register page */
+.registerform {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: -15px;
+    margin-top: -10px;
+}
+/** Style for the button on the register page */
+.registerbutton {
+    margin: auto;
+    width: 80px;
+    background-color: #E1E1DD;
+    border: #363636 2px auto;
+    border-radius: 5px;
+}
+/** Since most elements are shared on the simpler login page, this is the style for the specialized version of .registerform */
+.logincontainer {
+    padding: 5px;
+    padding-top: 45px;
+    background-color: #7092AE;
+    border: #363636 5px solid;
+    padding-bottom: 45px;
+    border-radius: 10px;
+}
+/*
+
+                *ABOUT PAGE ELEMENTS
+                !This whole page needs a rework
+
+*/
+/** Style for the main heading on the about page */
+.aboutheading {
+    background-color: #90B2CE;
+    padding: 5px 10px;
+    border-radius: 2px 10px 10px 2px;
+
+}
+/** Style for body container on the about page */
+.aboutbody {
+    background-color: #90B2CE;
+    padding: 5px 5px 0px 5px;
+    border-radius: 2px 10px 10px 2px;
+    margin-bottom: -15px;
+}
+/** Style for the heading for each section of the body */
+.aboutsectitle {
+    font-style: italic;
+    text-decoration: underline;
+}
+/** Style for the container that holds all elements of the about page */
+.aboutcontainer {
+    padding: 10px;
+    background-color: #7092AE;
+    border: #363636 5px solid;
+    border-radius: 10px;
+}
+/** Style for the last section on the about page */
+.lastabout {
+    padding-bottom: 5px;
+}
+/*
+
+                *ACCOUNT SETTINGS ELEMENTS
+
+*/
+/* todo */
+.settingscontainer {
+    padding: 10px;
+    background-color: #7092AE;
+    border: #363636 5px solid;
+    border-radius: 10px;
+}
+/* todo */
+.settingslabel {
+    width: 150px;
+}
+/* todo */
+.settingsbutton {
+    width: 100px;
+    height: 30px;
+    border: 2px solid #363636;
+    margin-left: -4px;
+    border-radius: 0 5px 5px 0;
+}
+/* todo */
+.settingsinput {
+    border: 2px solid #363636;
+    border-right: 0;
+    height: 30px;
+    width: 300px;
+    border-radius: 3px 0 0 3px;
+    padding-left: 2px;
+}
+/** Style for the text input field for the new password */
+.newpass {
+    width: 400px;
+    border-right: 2px solid #363636;
+    border-radius: 3px 5px 5px 3px;
+}
+/* todo */
+.settingsheading {
+    margin-top: 20px;
+    width: 100%;
+    border-bottom: 4px solid #464646;
+    padding-bottom: 4px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/*
+
+                *CLASS LIST ELEMENTS
+
+*/
+/* todo */
+.classmenucontainer {
+    height: fit-content;
+    width: 100%;
+}
+/* todo */
+.subjectlist {
+    display: flex;
+}
+/* todo */
+.classes {
+    height: fit-content;
+    margin: auto;
+    width: 100px;
+}
+/* todo */
+.classrow {
+    display: inline-block;
+    margin-top: 5px;
+}
+/* todo */
+.classform {
+    display: inline-block;
+}
+/* todo */
+.classbutton {
+    background-color: none;
+    border: none;
+    border-radius: 10px;
+}

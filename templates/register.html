@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block pagename %}
+Register
+{% endblock %}
+
+{% block main %}
+    <div class="logincontainer">
+        <form method="post" class="registerform">
+            <div class="formfield">
+                <label class="registerlabel">Email</label>
+                <input type="email" required placeholder="example.x@kkw.ac.th" class="registerfield" name="email">
+            </div>
+            <div class="formfield">
+                <label class="registerlabel">Username</label>
+                <input autocomplete="off" required type="text" placeholder="Username" class="registerfield" name="username">
+            </div>
+            <div class="formfield">
+                <label class="registerlabel">Password</label>
+                <input autocomplete="off" required type="password" placeholder="Password" class="registerfield" name="password">
+            </div>
+            <button class="registerbutton" action="/register">Register</button>
+        </form>
+    </div>
+{% endblock %}
